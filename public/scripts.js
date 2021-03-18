@@ -8,7 +8,7 @@ logo.addEventListener("click", () => {
 for (let recipe of recipes) {
   recipe.addEventListener("click", () => {
     const id = recipe.getAttribute("id")
-    window.location.href = `/recipes/${id}`
+    window.location.href = `/foodfy/recipes/${id}`
   })
 }
 
