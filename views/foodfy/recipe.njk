@@ -34,9 +34,9 @@
         </div>
         <div class="topic-content">
           <ul>
-            {% for preparation in recipe.preparation %}
+            {% for step in recipe.steps %}
               <li>
-                {{preparation}}
+                {{step}}
               </li>
             {% endfor %}
           </ul>

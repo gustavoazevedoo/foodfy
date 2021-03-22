@@ -12,8 +12,8 @@
       {% endfor %}
 
       {% for recipe in recipes %}
-        <div class="card" id="{{recipe.id}}">
-          <img class="image-recipe" src="{{recipe.image}}" alt="">
+        <div class="card">
+          <img id="{{recipe.id}}" class="image-recipe" src="{{recipe.image}}" alt="">
           <p class="tittle-recipe">{{recipe.title}}</p>
           <p class="author-recipe">{{recipe.author}}</p>
         </div>
