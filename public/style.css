@@ -49,6 +49,10 @@ nav a:first-child {
   margin-left: 0;
 }
 
+.active {
+  font-weight: bold;
+}
+
 #hero {
   background-color: #FBDFDB;
   display: grid;
@@ -62,7 +66,6 @@ nav a:first-child {
   max-width: 330px;
   margin: 0 auto;
   margin-top: 50px;
-
 }
 
 #hero .description h1 {
@@ -108,7 +111,6 @@ nav a:first-child {
 }
 
 /* ABOUT */
-
 main .text {
   font-size: 18px;
   color: #444444;
@@ -125,7 +127,6 @@ main h3 {
   margin-bottom: 20px;
 }
 
-
 /* footer */
 footer {
   padding: 23px;
@@ -134,7 +135,6 @@ footer {
   color: #999999;
   text-align: center;
   margin-top: 50px;
-
 }
 
 /* RECIPE */
@@ -196,9 +196,9 @@ footer {
 .topic-content {
   visibility: visible;
 }
+
 .topic-content.hide {
   display: none;
-
 }
 
 .information {

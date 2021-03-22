@@ -1,5 +1,5 @@
 const logo = document.querySelector(".logo")
-const recipes = document.querySelectorAll(".card")
+const recipes = document.querySelectorAll(".image-recipe")
 
 logo.addEventListener("click", () => {
   window.location.href = "/"
@@ -8,7 +8,11 @@ logo.addEventListener("click", () => {
 for (let recipe of recipes) {
   recipe.addEventListener("click", () => {
     const id = recipe.getAttribute("id")
-    window.location.href = `/foodfy/recipes/${id}`
+    if (location.pathname.includes("foodfy")) {
+      window.location.href = `/foodfy/recipes/${id}`
+    } else {
+      window.location.href = `/admin/recipes/${id}`
+    }
   })
 }
 
@@ -31,3 +35,49 @@ for (let topic of topics) {
   })
 }
 
+const currentPage = location.pathname
+const menuItems = document.querySelectorAll("header nav a")
+
+for( item of menuItems) {
+  if(currentPage.includes(item.getAttribute("href"))) {
+    item.classList.add("active")
+  }
+}
+
+function addIngredient() {
+  const ingredients = document.querySelector("#ingredients");
+  const fieldContainer = document.querySelectorAll(".ingredient");
+
+  // Realiza um clone do último ingrediente adicionado
+  const newField = fieldContainer[fieldContainer.length - 1].cloneNode(true);
+
+  // Não adiciona um novo input se o último tem um valor vazio
+  if (newField.children[0].value == "") return false;
+
+  // Deixa o valor do input vazio
+  newField.children[0].value = "";
+  ingredients.appendChild(newField);
+}
+
+document
+  .querySelector(".add-ingredient")
+  .addEventListener("click", addIngredient)
+
+function addStep() {
+  const steps = document.querySelector("#steps");
+  const fieldContainer = document.querySelectorAll(".step");
+
+  // Realiza um clone do último step adicionado
+  const newField = fieldContainer[fieldContainer.length - 1].cloneNode(true);
+
+  // Não adiciona um novo input se o último tem um valor vazio
+  if (newField.children[0].value == "") return false;
+
+  // Deixa o valor do input vazio
+  newField.children[0].value = "";
+  steps.appendChild(newField);
+}
+
+document
+  .querySelector(".add-step")
+  .addEventListener("click", addStep);

@@ -1,37 +1,33 @@
 {% extends "admin/layout.njk" %}
 
 {% block content %}
-  <div class="wrapper">
-    <div class="nav-recipe">
-      <h2>Editando receita</h2>
-      <div class="buttons-form">
-        <button type="submit">Deletar</button>
-        <button type="submit">Salvar receita</button>
-      </div>
+  <div class="actions-recipe">
+    <h2>Editando receita</h2>
+    <div class="form-buttons">
+      <button type="submit">Deletar</button>
+      <button type="submit">Salvar receita</button>
     </div>
-
-    <h4>Imagem da receita</h4>
-    <input type="url" placeholder="http://">
-
-    <h4>Ingredientes</h4>
-    <div id="ingredients">
-      <div class="ingredient">
-        <input type="text" name="ingredients[]" value="" placeholder="Ingredient" />
-      </div>
-    </div>
-    <button type="button" class="add-ingredient">Adicionar novo ingrediente</button>
-
-    <h4>Modo de preparo</h4>
-    {# steps acho que fica um nome melhor #}
-    <div id="preparations">
-      <div class="preparation">
-        <input type="text" name="preparations[]" value="" placeholder="Preparation" />
-      </div>
-    </div>
-    <button type="button" class="add-preparation">Adicionar novo passo</button>
   </div>
+
+  <h4>Imagem da receita</h4>
+  <input type="url" placeholder="http://">
+
+  <h4>Ingredientes</h4>
+  <div id="ingredients">
+    <div class="ingredient">
+      <input type="text" name="ingredients[]" value="" placeholder="Ingredient" />
+    </div>
+  </div>
+  <button type="button" class="add-ingredient">Adicionar novo ingrediente</button>
+
+  <h4>Modo de preparo</h4>
+  <div id="steps">
+    <div class="step">
+      <input type="text" name="steps[]" value="" placeholder="Step" />
+    </div>
+  </div>
+  <button type="button" class="add-step">Adicionar novo passo</button>
 
   <h4>Informações adicionais</h4>
   <textarea name="" id="" rows="10"></textarea>
-
 {% endblock content %}
