@@ -38,7 +38,7 @@ for (let topic of topics) {
 const currentPage = location.pathname
 const menuItems = document.querySelectorAll("header nav a")
 
-for( item of menuItems) {
+for (item of menuItems) {
   if(currentPage.includes(item.getAttribute("href"))) {
     item.classList.add("active")
   }
@@ -81,3 +81,13 @@ function addStep() {
 document
   .querySelector(".add-step")
   .addEventListener("click", addStep);
+
+const formDelete = document.querySelector("#delete-recipe")
+
+formDelete.addEventListener("submit", (event) => {
+  const confirmation = confirm("Deseja deletar a receita?")
+
+  if(!confirmation) {
+    event.preventDefault()
+  }
+})
