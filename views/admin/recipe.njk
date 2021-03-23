@@ -3,7 +3,7 @@
 {% block content %}
   <div class="actions-recipe">
     <h2>Receita: {{recipe.title}}</h2>
-    <a href="/admin/recipes/{{recipe.id}}/edit">Editar receita</a>
+    <a href="{{recipe.id}}/edit">Editar receita</a>
   </div>
 
   <div class="recipe-header">
@@ -36,9 +36,9 @@
       </div>
       <div class="topic-content">
         <ul>
-          {% for preparation in recipe.preparation %}
+          {% for step in recipe.steps %}
             <li>
-              {{preparation}}
+              {{step}}
             </li>
           {% endfor %}
         </ul>

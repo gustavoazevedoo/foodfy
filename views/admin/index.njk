@@ -1,8 +1,10 @@
 {% extends "admin/layout.njk" %}
 
 {% block content %}
-  <a href="/admin/recipes/create">Novo +</a>
-  <h2>Gerenciar receitas</h2>
+  <div class="actions-recipe">
+    <h2>Gerenciar receitas</h2>
+    <a href="/admin/recipes/create">Novo +</a>
+  </div>
 
   <section class="cards">
     {% for recipe in recipes %}
