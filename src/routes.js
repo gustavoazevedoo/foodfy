@@ -1,8 +1,8 @@
 const express = require("express")
 const routes = express.Router()
 
-const foodfy = require("./controllers/foodfy")
-const admin = require("./controllers/admin")
+const foodfy = require("./app/controllers/foodfy")
+const admin = require("./app/controllers/admin")
 
 routes.get("/", (req, res) => {
   return res.redirect("/foodfy")
