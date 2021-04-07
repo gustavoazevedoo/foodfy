@@ -1,41 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
-
-/* PAGINA QUE MOSTRA AS RECEITAS */
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Roboto', sans-serif;
-}
-
 h2 {
   font-weight: bold;
   font-size: 24px;
   color: #111111;
   margin-bottom: 30px;
-}
-
-input, textarea, select {
-  width: 100%;
-  background: #FFFFFF;
-  border: 1px solid #DDDDDD;
-  border-radius: 4px;
-  padding: 10px;
-  font-size: 16px;
-  color: #111111;
-}
-
-input, select  {
-  margin-bottom: 10px;
-}
-
-textarea {
-  margin-bottom: 100px;
-  font-family: 'Roboto', sans-serif;
-  line-height: 24px;
 }
 
 button[type=button] {
@@ -81,41 +48,10 @@ nav a.active {
   color: #FFFFFF;
 }
 
-.wrapper {
-  max-width: 940px;
-  margin: 0 auto;
-}
-
-.cards {
+.cards.recipes.admin {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
-}
-
-.cards.chefs {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-}
-
-.card {
-  display: flex;
-  gap: 20px;
-  /* align-items: center; */
-}
-
-.card.chef {
-  align-items: center;
-}
-
-.card .image-chef {
-  width: 64px;
-  border-radius: 50%;
-}
-
-.card .name-chef {
-  font-size: 18px;
-  color: #111111;
-  margin-bottom: 10px;
 }
 
 .card .image-recipe {
@@ -137,6 +73,32 @@ nav a.active {
   margin-bottom: 10px;
 }
 
+.cards.chefs {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.card.chef {
+  align-items: center;
+}
+
+.card .image-chef {
+  width: 64px;
+  border-radius: 50%;
+}
+
+.card .name-chef {
+  font-size: 18px;
+  color: #111111;
+  margin-bottom: 10px;
+}
+
+.card {
+  display: flex;
+  gap: 20px;
+}
+
 .card a {
   font-size: 14px;
   color: #6558C3;
@@ -144,7 +106,6 @@ nav a.active {
   font-weight: bold;
 }
 
-/* PAGINA DA RECEITA */
 .recipe-header {
   text-align: center;
 }

@@ -45,7 +45,7 @@ module.exports = {
     GROUP BY chefs.id
     `, [id], (err, results) => {
         if (err) throw `Database Error! ${err}`
-        console.log(results.rows[0])
+        // console.log(results.rows[0])
         callback(results.rows[0])
       }
     )
@@ -75,6 +75,19 @@ module.exports = {
       if (err) throw `Database Error! ${err}`
 
       callback()
+    })
+  },
+  recipesChef(id, callback) {
+    db.query(`
+    SELECT recipes.*
+    FROM recipes
+    LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
+    WHERE recipes.chef_id = $1
+    ORDER BY recipes.title
+    `, [id], (err, results) => {
+      if (err) throw `Database Error! ${err}`
+      console.log(results.rows)
+      callback(results.rows)
     })
   }
 }

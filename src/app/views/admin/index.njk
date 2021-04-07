@@ -6,9 +6,9 @@
     <a href="/admin/recipes/create">Novo +</a>
   </div>
 
-  <section class="cards">
+  <section class="cards recipes admin">
     {% for recipe in recipes %}
-      <div class="card">
+      <div class="card recipes admin">
         <img id="{{recipe.id}}" class="image-recipe" src="{{recipe.image}}" alt="">
         <div class="card__info">
           <p class="tittle-recipe">{{recipe.title}}</p>

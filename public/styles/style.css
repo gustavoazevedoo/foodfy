@@ -1,17 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
-
-* {
-  padding: 0;
-  border: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-a {
-  text-decoration: none;
-  color: #111111;
-}
-
 h2 {
   margin-bottom: 20px;
 }
@@ -20,24 +6,11 @@ main {
   margin-top: 50px;
 }
 
-body {
-  font-family: 'Roboto', sans-serif;
-}
-
-.wrapper {
-  max-width: 960px;
-  margin: 0 auto;
-}
-
 header {
   margin: 30px 0;
   display: grid;
   grid-template-columns: 215px 1fr;
   align-items: center;
-}
-
-header .logo {
-  cursor: pointer;
 }
 
 nav a {
@@ -86,7 +59,7 @@ nav a:first-child {
 }
 
 /* CARDS */
-.cards {
+.cards.recipes {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
@@ -214,6 +187,7 @@ footer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   margin-top: 50px;
+  gap: 20px;
 }
 
 .card.chef {

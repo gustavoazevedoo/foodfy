@@ -13,13 +13,14 @@
   </div>
 
   <div class="recipe-content">
-    <section class="cards">
+    <h2>Receitas</h2>
+    <section class="cards recipes admin">
       {% for recipe in recipes %}
         <div class="card">
           <img id="{{recipe.id}}" class="image-recipe" src="{{recipe.image}}" alt="">
           <div class="card__info">
             <p class="tittle-recipe">{{recipe.title}}</p>
-            <p class="author-recipe">{{recipe.author}}</p>
+            <p class="author-recipe">{{chef.name}}</p>
             <a href="/admin/recipes/{{recipe.id}}">Viualizar</a>
           </div>
         </div>

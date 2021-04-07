@@ -24,8 +24,9 @@ module.exports = {
   },
   show(req, res) {
     Chef.findChef(req.params.id, (chef) => {
-
-      return res.render(`chefs/chef`, { chef })
+      Chef.recipesChef(req.params.id, (recipes) => {
+        return res.render(`chefs/chef`, { chef, recipes })
+      })
     })
   },
   edit(req, res) {
@@ -47,9 +48,15 @@ module.exports = {
     })
   },
   delete(req, res) {
-    Chef.deleteChef(req.body.id, () => {
-      return res.redirect("/chefs")
+    Chef.findChef(req.body.id, (chef) => {
+      if (chef.total_recipes > 0) {
+        return res.send("Chef com receitas cadastradas não podem ser excluidos")
+      } else {
+        Chef.deleteChef(req.body.id, () => {
+          return res.redirect("chefs")
+        })
+      }
     })
   }
-
 }
+
