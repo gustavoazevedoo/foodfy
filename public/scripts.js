@@ -63,11 +63,11 @@ document
   .querySelector(".add-ingredient")
   .addEventListener("click", addIngredient)
 
-function addStep() {
-  const steps = document.querySelector("#steps");
-  const fieldContainer = document.querySelectorAll(".step");
+function addPreparation() {
+  const preparations = document.querySelector("#preparations");
+  const fieldContainer = document.querySelectorAll(".preparation");
 
-  // Realiza um clone do último step adicionado
+  // Realiza um clone do último preparation adicionado
   const newField = fieldContainer[fieldContainer.length - 1].cloneNode(true);
 
   // Não adiciona um novo input se o último tem um valor vazio
@@ -75,12 +75,12 @@ function addStep() {
 
   // Deixa o valor do input vazio
   newField.children[0].value = "";
-  steps.appendChild(newField);
+  preparations.appendChild(newField);
 }
 
 document
-  .querySelector(".add-step")
-  .addEventListener("click", addStep);
+  .querySelector(".add-preparation")
+  .addEventListener("click", addPreparation);
 
 const formDelete = document.querySelector("#delete-recipe")
 

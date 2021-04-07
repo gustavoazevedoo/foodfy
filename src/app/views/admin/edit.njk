@@ -17,8 +17,14 @@
     <h4>Título da receita</h4>
     <input type="text" name="title" value="{{recipe.title}}">
 
-    <h4>Autor da receita</h4>
-    <input type="text" name="author" value="{{recipe.author}}">
+    <h4>Chef</h4>
+    <select name="chef">
+      {% for chef in chefOptions %}
+        <option value="{{chef.id}}" {% if recipe.chef_id == chef.id %} selected {%endif%}>
+          {{chef.name}}
+        </option>
+      {% endfor %}
+    </select>
 
     <h4>Ingredientes</h4>
     <div id="ingredients">
@@ -31,14 +37,14 @@
     <button type="button" class="add-ingredient">Adicionar novo ingrediente</button>
 
     <h4>Modo de preparo</h4>
-    <div id="steps">
-      {% for step in recipe.steps %}
-      <div class="step">
-        <input type="text" name="steps[]" value="{{step}}" placeholder="Step" />
+    <div id="preparations">
+      {% for preparation in recipe.preparation %}
+      <div class="preparation">
+        <input type="text" name="preparations[]" value="{{preparation}}" placeholder="Preparation" />
       </div>
       {% endfor %}
     </div>
-    <button type="button" class="add-step">Adicionar novo passo</button>
+    <button type="button" class="add-preparation">Adicionar novo passo</button>
 
     <h4>Informações adicionais</h4>
     <textarea name="information" rows="10">{{recipe.information}}</textarea>

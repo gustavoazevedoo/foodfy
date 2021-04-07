@@ -207,3 +207,33 @@ footer {
   color: #444444;
   line-height: 28px;
 }
+
+
+/* CHEFS */
+.cards.chefs {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-top: 50px;
+}
+
+.card.chef {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.card .image-chef {
+  width: 64px;
+  border-radius: 50%;
+}
+
+.card .name-chef {
+  font-size: 18px;
+  color: #111111;
+  margin-bottom: 10px;
+}
+
+.card .card__info p:last-child {
+  font-size: 14px;
+  color: #666666;
+}
