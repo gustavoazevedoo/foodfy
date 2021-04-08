@@ -13,6 +13,7 @@ routes.get("/foodfy/about", foodfy.about)
 routes.get("/foodfy/recipes", foodfy.recipes)
 routes.get("/foodfy/chefs", foodfy.chefs)
 routes.get("/foodfy/recipes/:id", foodfy.recipe)
+routes.get("/foodfy/search", foodfy.search)
 
 routes.get("/admin", (req, res) => {
   res.redirect("/admin/recipes")

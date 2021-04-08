@@ -54,6 +54,19 @@ module.exports = {
       }
     )
   },
+  findBy(filter, callback) {
+    db.query(`
+    SELECT recipes.*, chefs.name AS author
+    FROM recipes
+    LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
+    WHERE recipes.title ILIKE '%${filter}%'
+    
+    `, (err, results) => {
+      if (err) throw `Database Error! ${err}`
+        console.log(results.rows)
+        callback(results.rows)
+    })
+  },
   update(data, callback) {
     const query = `
       UPDATE recipes SET

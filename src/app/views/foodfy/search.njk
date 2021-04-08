@@ -4,6 +4,7 @@
 {%include "foodfy/filter.njk"%}
 
   <main>
+    <h2>Buscando por "{{filter}}"</h2>
     <section class="cards recipes">
       {% for recipe in recipes %}
         <div class="card">

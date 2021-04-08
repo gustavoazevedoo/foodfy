@@ -25,5 +25,23 @@ module.exports = {
     Chef.all((chefs) => {
       return res.render("foodfy/chefs", { chefs })
     })
+  },
+  search(req, res) {
+    let { filter } = req.query
+
+    if (filter) {
+      Recipe.findBy(filter, (recipes) => {
+        if (recipes[0]) {
+          return res.render("foodfy/search", {recipes, filter})
+        } else {
+          return res.send("Recipe not found!")
+        }
+      })
+    } else {
+      Recipe.all((recipes) => {
+        filter = "todos"
+        return res.render("foodfy/search", { recipes, filter })
+      })
+    }
   }
 }
