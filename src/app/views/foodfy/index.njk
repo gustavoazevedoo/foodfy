@@ -2,26 +2,30 @@
 
 
 {% block content %}
-  {%include "foodfy/filter.njk"%}
+  <header id="main-header">
+    <nav>
+      <ul>
+        <li><img class="logo" src="/assets/logo.png" alt=""></li>
+        <li><a href="/foodfy/about">Sobre</a></li>
+        <li><a href="/foodfy/recipes">Receitas</a></li>
+        <li><a href="/foodfy/chefs">Chefs</a></li>
+        <li><a href="/admin/recipes">Admin</a></li>
+      </ul>
+    </nav>
+    {%include "foodfy/filter.njk"%}
+  </header>
   <div id="hero">
     <div class="description">
       <h1>As melhores receitas</h1>
-      <p>Aprenda a construir os melhores pratos com receitas criadas por profissionais do mundo inteiro.</p>
+      <p>Aprenda a construir os melhores pratos
+        com receitas criadas por profissionais
+        do mundo inteiro.
+      </p>
     </div>
-    <div class="image-container">
-      <img src="/assets/chef.png" alt="Chef">
-    </div>
+    <img src="/assets/chef.png" alt="Chef">
   </div>
 
   <h2>Mais acessadas</h2>
 
-  <section class="cards recipes">
-    {% for recipe in recipes %}
-      <div class="card">
-        <img id="{{recipe.id}}" class="image-recipe" src="{{recipe.image}}" alt="">
-        <p class="tittle-recipe">{{recipe.title}}</p>
-        <p class="author-recipe">por {{recipe.author}}</p>
-      </div>
-    {% endfor %}
-  </section>
+  {%include "foodfy/cards-recipes.njk"%}
 {% endblock content %}

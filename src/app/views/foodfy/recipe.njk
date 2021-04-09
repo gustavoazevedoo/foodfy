@@ -1,17 +1,27 @@
 {% extends "foodfy/layout.njk" %}
 
 {% block content %}
-{%include "foodfy/header.njk"%}
+<header id="main-header">
+    <nav>
+      <ul>
+        <li><img class="logo" src="/assets/logo.png" alt=""> </li>
+        <li><a href="/foodfy/about">Sobre</a> </li>
+        <li><a href="/foodfy/recipes">Receitas</a></li>
+        <li><a href="/foodfy/chefs">Chefs</a></li>
+        <li><a href="/admin/recipes">Admin</a></li>
+      </ul>
+    </nav>
+  </header>
+
   <div class="recipe-container">
     <div class="recipe-header">
       <img src="{{recipe.image}}" alt="">
-      <h1 >{{recipe.title}}</h1>
-      <p>por
-        {{recipe.author}}
-      </p>
+      <h1>{{recipe.title}}</h1>
+      <p>por {{recipe.author}}</p>
     </div>
 
     <div class="recipe-content">
+      
       <div id="ingredients" class="topic">
         <div class="topic-header">
           <h2>Ingredientes</h2>

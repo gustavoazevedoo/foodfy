@@ -7,11 +7,19 @@
   box-sizing: border-box;
 }
 
+main {
+  margin-top: 20px;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
 }
 
-input, textarea, select {
+h2 {
+  margin-bottom: 20px;
+}
+
+/* input, textarea, select {
   width: 100%;
   background: #FFFFFF;
   border: 1px solid #DDDDDD;
@@ -20,7 +28,7 @@ input, textarea, select {
   font-size: 16px;
   color: #111111;
   margin-bottom: 10px;
-}
+} */
 
 textarea {
   margin-bottom: 100px;
@@ -33,8 +41,12 @@ a {
   color: #111111;
 }
 
-.wrapper {
-  max-width: 960px;
+.cards {
+  margin-top: 20px;
+}
+
+.content {
+  max-width: 940px;
   margin: 0 auto;
 }
 

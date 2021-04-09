@@ -1,17 +1,20 @@
 {% extends "foodfy/layout.njk" %}
 
 {% block content %}
-{%include "foodfy/filter.njk"%}
+  <header id="main-header">
+    <nav>
+      <ul>
+        <li><img class="logo" src="/assets/logo.png" alt=""> </li>
+        <li><a href="/foodfy/about">Sobre</a> </li>
+        <li><a href="/foodfy/recipes">Receitas</a></li>
+        <li><a href="/foodfy/chefs">Chefs</a></li>
+        <li><a href="/admin/recipes">Admin</a></li>
+      </ul>
+    </nav>
+    {%include "foodfy/filter.njk"%}
+  </header>
 
   <main>
-    <section class="cards recipes">
-      {% for recipe in recipes %}
-        <div class="card">
-          <img id="{{recipe.id}}" class="image-recipe" src="{{recipe.image}}" alt="">
-          <p class="tittle-recipe">{{recipe.title}}</p>
-          <p class="author-recipe">por {{recipe.author}}</p>
-        </div>
-      {% endfor %}
-    </section>
+    {%include "foodfy/cards-recipes.njk"%}
   </main>
 {% endblock content %}
