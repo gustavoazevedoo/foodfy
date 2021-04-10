@@ -1,4 +1,4 @@
-/* HEADER */
+/* Header */
 header#main-header {
   height: 100px;
   display: flex;
@@ -6,26 +6,24 @@ header#main-header {
   justify-content: space-between;
 }
 
-header#main-header nav ul {
+header#main-header nav {
   display: flex;
   align-items: center;
   list-style: none;
 }
 
-header#main-header nav ul li {
+header#main-header nav img {
+  margin-right: 100px;
+}
+
+header#main-header nav a {
   font-size: 16px;
   color: #111111;
   margin-left: 30px;
 }
 
-header#main-header nav ul li:first-child {
+header#main-header nav a:first-child {
   margin-left: 0;
-  margin-right: 100px;
-}
-
-header#main-header nav ul li a {
-  font-size: 16px;
-  color: #111111;
 }
 
 header#main-header form {
@@ -248,7 +246,7 @@ footer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
-}
+} 
 
 .cards.chefs .card {
   display: flex;

@@ -5,93 +5,43 @@ h2 {
   margin-bottom: 30px;
 }
 
-button[type=button] {
-  font-size: 16px;
-  font-weight: bold;
-  color: #6558C3;
-  text-align: right;
-  background: none;
-  border: none;
-  margin-top: 15px;
-  cursor: pointer;
-}
-
-header {
+/* Header */
+header#admin-header {
+  height: 80px;
   background-color: #111111;
-  padding: 32px 0;
   margin-bottom: 50px;
 }
 
-.container {
-  max-width: 940px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 180px 1fr;
+header#admin-header .content {
+  display: flex;
   align-items: center;
+  height: 100%;
 }
 
-.container nav a {
+header#admin-header .content nav {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+header#admin-header .content nav img {
+  margin-right: 50px;
+}
+
+header#admin-header .content nav a {
   margin-left: 30px;
-  font-weight: bold;
   font-size: 15px;
+  font-weight: bold;
   color: #999999;
-  text-align: left;
   text-transform: uppercase;
-  text-decoration: none;
 }
 
-.container nav a:first-child {
+header#admin-header .content nav a:first-child {
   margin-left: 0;
 }
 
-nav a.active {
+header#admin-header .content nav a.active {
   color: #FFFFFF;
-}
-
-.cards.recipes.admin {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-.card .image-recipe {
-  width: 172px;
-  height: 80px;
-  border-radius: 8.57px;
-  cursor: pointer;
-}
-
-.card .tittle-recipe {
-  font-size: 18px;
-  color: #111111;
-  margin-bottom: 5px;
-}
-
-.card .author-recipe {
-  font-size: 14px;
-  color: #777777;
-  margin-bottom: 10px;
-}
-
-.cards.chefs {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 20px;
-}
-
-.card.chef {
-  align-items: center;
-}
-
-.card .image-chef {
-  width: 64px;
-  border-radius: 50%;
-}
-
-.card .name-chef {
-  font-size: 18px;
-  color: #111111;
-  margin-bottom: 10px;
 }
 
 .card {
@@ -106,129 +56,207 @@ nav a.active {
   font-weight: bold;
 }
 
-.recipe-header {
-  text-align: center;
+/* Cards recipes */
+.cards.recipes.admin {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
 
-.recipe-header img {
-  border-radius: 15px;
-  margin-bottom: 50px;
+.cards.recipes.admin .card img {
+  width: 172px;
+  height: 80px;
+  border-radius: 8.57px;
+  cursor: pointer;
 }
 
-.recipe-header h1{
-  margin-bottom: 4px;
+.cards.recipes.admin .card .info strong {
+  font-size: 18px;
+}
+
+.cards.recipes.admin .card .info p {
+  font-size: 14px;
+  color: #777777;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+/* cards chefs */
+.cards.chefs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+} 
+
+.cards.chefs .card {
+  display: flex;
+  align-items: center;
+}
+
+.cards.chefs .card img {
+  height: 64px;
+  width: 64px;
+  border-radius: 50%;
+}
+
+.cards.chefs .card .info strong {
+  font-weight: normal;
+  font-size: 18px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* Chef */
+.chef {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chef img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-top: 15px;
+}
+
+.chef h1 {
   font-size: 36px;
   color: #111111;
+  margin: 30px 0 4px;
 }
 
-.recipe-header p {
+.chef p {
   font-size: 20px;
   color: #777777;
   margin-bottom: 50px;
 }
 
-.recipe-header .chef-image {
-  border-radius: 50%;
-  width: 200px;
-  height: 200px;
-  margin-bottom: 30px;
+/* Recipe */
+
+.recipe-container {
+  margin-top: 20px;
 }
 
-.topic-header {
+.recipe-header {
   display: flex;
-  align-items: baseline;
+  flex-direction: column;
+  align-items: center;
+}
+
+.recipe-header img {
+  width: 100%;
+  height: 280px;
+  border-radius: 15px;
+}
+
+.recipe-header h1 {
+  margin-top: 50px;
+  font-size: 36px;
+}
+
+.recipe-header p {
+  font-size: 20px;
+  color: #777777;
+  margin-top: 5px;
+}
+
+.recipe-content {
+  margin-top: 50px;
+}
+
+.recipe-content .topic {
+  margin-bottom: 50px;
 }
 
 .topic-header h2 {
   font-size: 24px;
-  color: #111111;
-  font-weight: bold;  
 }
 
-.topic-header p {
-  font-weight: bold;
+.recipe-content .topic-header p {
+  margin-left: 8px;
   font-size: 12px;
   color: #999999;
-  margin-left: 8px;
+  font-weight: bold;
   text-transform: uppercase;
   cursor: pointer;
 }
 
-.topic-content ul {
+.recipe-content .topic-content ul {
+  list-style: none;
+}
+
+.recipe-content .topic-content ul li {
+  position: relative;
+  padding-left: 15px;
   font-size: 18px;
   color: #444444;
   line-height: 28px;
-  padding-left: 19px;
-  margin-bottom: 20px;
 }
 
-.topic-content ::marker {
-  color: black;
+.recipe-content .topic-content ul li::before {
+  content: '';
+  height: 1px;
+  width: 5px;
+  background: #444444;
+  position: absolute;
+  left: 0;
+  top: 13px;
+  margin-right: 5px;
 }
 
-.topic-content {
-  visibility: visible;
-}
-
-.topic-content.hide {
-  display: none;
-}
-
-.information {
-  font-family: Roboto-Regular;
+.recipe-content .topic-content p {
   font-size: 18px;
   color: #444444;
   line-height: 28px;
-  margin-bottom: 50px;
 }
 
-.actions-recipe {
+/* FORM */
+
+form {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+}
+
+form input,
+form select,
+form textarea {
+  background: #FFFFFF;
+  border: 1px solid #DDDDDD;
+  border-radius: 4px;
+  padding: 15px 20px;
+  font-size: 16px;
+  color: #111111;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+form .item {
   margin-bottom: 30px;
 }
 
-.actions-chef {
-  margin-bottom: 51px;
+form .item h4 {
+  margin-bottom: 10px;
 }
 
-.actions-recipe h2 {
+form#save-recipe button[type=button] {
+  font-size: 16px;
+  font-weight: bold;
+  color: #6558C3;
+  width: fit-content;
+  background: none;
+  border: none;
+  margin-top: 15px;
+  cursor: pointer;
+  outline: none;
+}
+
+form#save-recipe select {
   margin: 0;
 }
 
-.actions-recipe a {
-  text-decoration: none;
-  font-size: 16px;
-  color: #FFFFFF;
-  padding: 8px 16px;
-  background: #6558C3;
-  border-radius: 4px;
-}
-
-.actions-recipe .form-buttons button {
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  color: #FFFFFF;
-  text-align: right;
-  font-weight: bold;
-  background-color: #DC4747;
-  cursor: pointer;
-}
-
-.actions-recipe .form-buttons button:last-child {
-  background-color: #6558C3;
-  margin-left: 10px;
-  cursor: pointer;
-}
-
-.wrapper h4 {
-  margin-bottom: 10px;
-  margin-top: 30px;
-}
-
-.wrapper > input {
+form#save-recipe textarea {
+  font-family: 'Roboto', sans-serif;
+  line-height: 24px;
   margin: 0;
 }

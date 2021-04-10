@@ -1,7 +1,7 @@
 {% extends "admin/layout.njk" %}
 
 {% block content %}
-  <div class="actions-recipe">
+  <div class="actions">
     <h2>Editando chef</h2>
     <div class="form-buttons">
       <button form="delete-chef" type="submit">Deletar</button>
@@ -11,11 +11,15 @@
   <form id="save-chef" method="POST" action="/admin/chefs?_method=PUT" >
     <input type="hidden" name="id" value="{{chef.id}}">
 
-    <h4>Nome</h4>
-    <input type="text" name="name" value="{{chef.name}}">
+    <div class="item">
+      <h4>Nome</h4>
+      <input type="text" name="name" value="{{chef.name}}">
+    </div>
 
-    <h4>Avatar</h4>
-    <input type="url" name="avatar_url" value="{{chef.avatar_url}}" placeholder="http://">
+    <div class="item">
+      <h4>Avatar</h4>
+      <input type="url" name="avatar_url" value="{{chef.avatar_url}}" placeholder="http://">
+    </div>
   </form>
 
   <form id="delete-chef" method="POST" action="/admin/chefs?_method=DELETE">

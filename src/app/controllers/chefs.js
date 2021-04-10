@@ -3,11 +3,11 @@ const Chef = require("../models/Chef")
 module.exports = {
   index(req, res) {
     Chef.all((chefs) => {
-      return res.render("chefs/index", { chefs })
+      return res.render("admin/chefs/index", { chefs })
     })
   },
   create(req, res) {
-    return res.render("chefs/create")
+    return res.render("admin/chefs/create")
   },
   post(req, res) {
     const keys = Object.keys(req.body)
@@ -25,14 +25,14 @@ module.exports = {
   show(req, res) {
     Chef.findChef(req.params.id, (chef) => {
       Chef.recipesChef(req.params.id, (recipes) => {
-        return res.render(`chefs/chef`, { chef, recipes })
+        return res.render(`admin/chefs/chef`, { chef, recipes })
       })
     })
   },
   edit(req, res) {
     Chef.findChef(req.params.id, (chef) => {
 
-      return res.render(`chefs/edit`, { chef })
+      return res.render(`admin/chefs/edit`, { chef })
     })
   },
   put(req, res) {

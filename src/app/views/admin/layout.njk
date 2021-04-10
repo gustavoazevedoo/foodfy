@@ -4,20 +4,20 @@
     <title>Foodfy</title>
     <link rel="stylesheet" href="/styles/admin.css">
     <link rel="stylesheet" href="/styles/main.css">
-    <link rel="stylesheet" href="/styles/partials/cards.css">
+    <link rel="stylesheet" href="/styles/actions.css">
   </head>
   <body>
-    <header>
-      <div class="container">
-        <img class="logo" src="/assets/adminLogo.png" alt="Logo">
+    <header id="admin-header">
+      <div class="content">
         <nav>
+          <img class="logo" src="/assets/adminLogo.png" alt="Logo">
           <a href="/admin/recipes">Receitas</a>
           <a href="/admin/chefs">Chefs</a>
         </nav>
       </div>
     </header>
 
-    <div class="wrapper">
+    <div class="content">
       {% block content %}{% endblock content %}
     </div>
 

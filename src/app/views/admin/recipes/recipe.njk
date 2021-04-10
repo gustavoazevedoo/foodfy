@@ -1,7 +1,7 @@
 {% extends "admin/layout.njk" %}
 
 {% block content %}
-  <div class="actions-recipe">
+  <div class="actions">
     <h2>Receita: {{recipe.title}}</h2>
     <a href="{{recipe.id}}/edit">Editar receita</a>
   </div>
@@ -16,7 +16,6 @@
     <div id="ingredients" class="topic">
       <div class="topic-header">
         <h2>Ingredientes</h2>
-        <p>esconder</p>
       </div>
       <div class="topic-content">
         <ul>
@@ -32,7 +31,6 @@
     <div id="preparation" class="topic">
       <div class="topic-header">
         <h2>Modo de preparo</h2>
-        <p>esconder</p>
       </div>
       <div class="topic-content">
         <ul>
@@ -48,7 +46,6 @@
     <div id="information" class="topic">
       <div class="topic-header">
         <h2>Informações adicionais</h2>
-        <p>esconder</p>
       </div>
       <div class="topic-content">
         <p class="information">{{recipe.information}}</p>

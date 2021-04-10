@@ -1,7 +1,7 @@
 {% extends "admin/layout.njk" %}
 
 {% block content %}
-  <div class="actions-recipe">
+  <div class="actions">
     <h2>Criando chef</h2>
     <div class="form-buttons">
       <button form="save-chef" type="submit">Salvar chef</button>
@@ -9,10 +9,14 @@
   </div>
 
   <form id="save-chef" method="POST" action="/admin/chefs">
-    <h4>Nome</h4>
-    <input type="text" name="name">
+    <div class="item">
+      <h4>Nome</h4>
+      <input type="text" name="name">
+    </div>
 
-    <h4>Avatar</h4>
-    <input type="url" name="avatar_url">
+    <div class="item">
+        <h4>Avatar</h4>
+        <input type="url" name="avatar_url">
+    </div>
   </form>
 {% endblock content %}
