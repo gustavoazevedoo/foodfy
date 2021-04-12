@@ -45,7 +45,7 @@ module.exports = {
     GROUP BY chefs.id
     `, [id], (err, results) => {
         if (err) throw `Database Error! ${err}`
-        // console.log(results.rows[0])
+        
         callback(results.rows[0])
       }
     )
@@ -86,7 +86,7 @@ module.exports = {
     ORDER BY recipes.title
     `, [id], (err, results) => {
       if (err) throw `Database Error! ${err}`
-      console.log(results.rows)
+
       callback(results.rows)
     })
   }

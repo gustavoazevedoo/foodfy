@@ -11,9 +11,27 @@ module.exports = {
     return res.render("foodfy/about")
   },
   recipes(req, res) {
-    Recipe.all((recipes) => {
-      return res.render("foodfy/recipes", { recipes })
-    })
+    let { filter, page, limit } = req.query
+    page = page || 1
+    limit = limit || 2
+    let offset = limit * (page - 1)
+
+    const params = {
+      filter,
+      page,
+      limit,
+      offset,
+      callback(recipes) {
+        const pagination = {
+          page,
+          totalPages: Math.ceil(recipes[0].total / limit)
+        }
+        
+        return res.render("foodfy/recipes", { recipes, filter, pagination })
+      }
+    }
+
+    Recipe.paginate(params)
   },
   recipe(req, res) {
     Recipe.findRecipe(req.params.id, (recipe) => {
@@ -27,21 +45,26 @@ module.exports = {
     })
   },
   search(req, res) {
-    let { filter } = req.query
+    let { filter, page, limit } = req.query
+    page = page || 1
+    limit = limit || 2
+    let offset = limit * (page - 1)
 
-    if (filter) {
-      Recipe.findBy(filter, (recipes) => {
-        if (recipes[0]) {
-          return res.render("foodfy/search", {recipes, filter})
-        } else {
-          return res.send("Recipe not found!")
+    const params = {
+      filter,
+      page,
+      limit,
+      offset,
+      callback(recipes) {
+        const pagination = {
+          page,
+          totalPages: Math.ceil(recipes[0].total / limit)
         }
-      })
-    } else {
-      Recipe.all((recipes) => {
-        filter = "todos"
-        return res.render("foodfy/search", { recipes, filter })
-      })
+        
+        return res.render("foodfy/search", { recipes, filter, pagination })
+      }
     }
+
+    Recipe.paginate(params)
   }
 }

@@ -53,3 +53,46 @@ a {
 header .logo {
   cursor: pointer;
 }
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.pagination span {
+  margin-left:  5px;
+}
+
+.pagination a {
+  color: #999999;
+  font-size: 18px;
+  padding: 5px 10px;
+  margin-left: 5px;
+
+  position: relative;
+}
+
+.pagination a.active {
+  color: #6558C3;
+  font-weight: bold;
+}
+
+.pagination a:first-child {
+  margin-left: 0;
+}
+
+.pagination a:hover {
+  color: #6558C3;
+}
+
+.pagination a:hover::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background: #6558C3;
+  position: absolute;
+}

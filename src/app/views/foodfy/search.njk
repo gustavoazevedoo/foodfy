@@ -16,4 +16,10 @@
     <h2>Buscando por "{{filter}}"</h2>
     {% include "foodfy/cards-recipes.njk" %}
   </main>
+
+  <div class="pagination" data-page={{pagination.page}} data-total={{pagination.totalPages}} data-filter={{filter}}>
+    {# Renderizar pelo javascript #}
+  </div>
+  
+  <script src="/pagination.js"></script>
 {% endblock content %}
