@@ -1,10 +1,12 @@
+const { findChef } = require("../models/Chef")
 const Chef = require("../models/Chef")
 
 module.exports = {
-  index(req, res) {
-    Chef.all((chefs) => {
-      return res.render("admin/chefs/index", { chefs })
-    })
+  async index(req, res) {
+    const results = await Chef.all()
+    const chefs = results.rows
+    
+    return res.render("admin/chefs/index", { chefs })
   },
   create(req, res) {
     return res.render("admin/chefs/create")
@@ -22,18 +24,20 @@ module.exports = {
     })
    
   },
-  show(req, res) {
-    Chef.findChef(req.params.id, (chef) => {
-      Chef.recipesChef(req.params.id, (recipes) => {
-        return res.render(`admin/chefs/chef`, { chef, recipes })
-      })
-    })
-  },
-  edit(req, res) {
-    Chef.findChef(req.params.id, (chef) => {
+  async show(req, res) {
+    let results = await Chef.findChef(req.params.id)
+    const chef = results.rows[0]
 
-      return res.render(`admin/chefs/edit`, { chef })
-    })
+    results = await Chef.recipesChef(req.params.id)
+    const recipes = results.rows
+
+    return res.render(`admin/chefs/chef`, { chef, recipes })
+  },
+  async edit(req, res) {
+    const results = await Chef.findChef(req.params.id)
+    const chef = results.rows[0]
+
+    return res.render(`admin/chefs/edit`, { chef })
   },
   put(req, res) {
     const keys = Object.keys(req.body)

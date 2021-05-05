@@ -2,15 +2,12 @@ const db = require("../../config/db")
 const { date } = require("../../lib/utils")
 
 module.exports = {
-  all(callback) {
-    db.query(`
+  all() {
+    return db.query(`
     SELECT recipes.*, chefs.name AS author 
     FROM recipes
     LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
-    `, (err, results) => {
-      if (err) throw `Database Error! ${err}`
-      callback(results.rows)
-    })
+    `)
   },
   createRecipe(data, callback) {
     const query = `
@@ -42,16 +39,12 @@ module.exports = {
       callback(results.rows[0])
     })
   },
-  findRecipe(id, callback) {
-    db.query(`
+  findRecipe(id) {
+    return db.query(`
       SELECT recipes.*, chefs.name AS author 
       FROM recipes
       LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
-      WHERE recipes.id = $1`, [id], (err, results) => {
-        if (err) throw `Database Error! ${err}`
-
-        callback(results.rows[0])
-      }
+      WHERE recipes.id = $1`, [id]
     )
   },
   findBy(filter, callback) {
@@ -101,12 +94,8 @@ module.exports = {
       callback()
     })
   },
-  chefsSelectOptions(callback) {
-    db.query(`SELECT name, id FROM chefs`, (err, results) => {
-      if (err) throw `Database Error! ${err}`
-
-      callback(results.rows)
-    })
+  chefsSelectOptions() {
+    return db.query(`SELECT name, id FROM chefs`)
   },
   paginate(params) {
     const { filter, limit, offset, callback } = params

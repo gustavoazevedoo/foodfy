@@ -43,10 +43,19 @@ for (let page of pages) {
     elements += `<span>${page}</span>`
   } else {
     if (filter) {
-      elements += `<a href=?page=${page}&filter=${filter}>${page}</a>`
+      if(selectedPage) {
+        elements += `<a class="active" href=?page=${page}&filter=${filter}>${page}</a>`
+
+      } else {
+        elements += `<a href=?page=${page}&filter=${filter}>${page}</a>`
+      }
     } else {
-      elements += `<a href=?page=${page}>${page}</a>`
-    }
+      if (selectedPage) {
+        elements += `<a class="active" href=?page=${page}>${page}</a>`
+      } else {
+        elements += `<a href=?page=${page}>${page}</a>`
+      }
+    } 
   }
 }
 

@@ -1,3 +1,86 @@
+const PhotosUpload = {
+  input: "",
+  uploadLimit: 5,
+  preview: document.querySelector('#photos-preview'),
+  files: [],
+  handleFileInput(event) {
+    const { files: fileList } = event.target
+    PhotosUpload.input = event.target
+    console.log(`PhotosUpload.input: ${PhotosUpload.input}`)
+
+    if (PhotosUpload.hasLimit(event)) return 
+
+    Array.from(fileList).forEach(file => {
+      PhotosUpload.files.push(file)
+
+      const reader = new FileReader()
+
+      reader.onload = () => {
+        const image = new Image()
+        image.src = String(reader.result)
+
+        const container = PhotosUpload.getContainerImage(image)
+
+        document.querySelector('#photos-preview').appendChild(container)
+      }
+
+      reader.readAsDataURL(file)
+    })
+    console.log(`PhotosUpload.files: ${PhotosUpload.files}`)
+    PhotosUpload.input.files = PhotosUpload.getAllFiles()
+    console.log(` PhotosUpload.input.files: ${PhotosUpload.input.files}`)
+  },
+  hasLimit(event) {
+    const { files: fileList } = event.target
+    const { uploadLimit } = PhotosUpload
+    
+    if (fileList.length > uploadLimit) {
+      alert(`Envie no máximo ${uploadLimit} fotos`) 
+      event.preventDefaulft() 
+      return true
+    }
+
+    return false
+  },
+  getContainerImage(image) {
+    const container = document.createElement('div')
+    container.classList.add('photo')
+
+    container.onclick = (event) => { 
+      PhotosUpload.removePhoto(event)
+    }
+
+    container.appendChild(image)
+    container.appendChild(PhotosUpload.getRemoveButton())
+
+    return container
+  },
+  getRemoveButton() {
+    const button = document.createElement('i')
+    button.classList.add("material-icons")
+    button.innerHTML = "close"
+  
+    return button
+  },
+  getAllFiles() {
+    const dataTransfer = new ClipboardEvent("").clipboardData || new DataTransfer()
+
+    PhotosUpload.files.forEach(file => dataTransfer.items.add(file))
+
+    return dataTransfer.files
+  },
+  removePhoto(event) {
+    const photoDiv = event.target.parentNode
+    const photosArray = Array.from(PhotosUpload.preview.children)
+    const index = photosArray.indexOf(photoDiv)
+
+    PhotosUpload.files.splice(index, 1)
+    PhotosUpload.input.files = PhotosUpload.getAllFiles()
+  
+    photoDiv.remove()
+  }
+}
+
 const logo = document.querySelector(".logo")
 const recipes = document.querySelectorAll(".image-recipe")
 
